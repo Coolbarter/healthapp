@@ -150,6 +150,26 @@
             line-height: 1.6;
         }
 
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+            
+            .hero-title {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+        }
+
         .hero-image {
             flex: 1;
             max-width: 600px;
@@ -271,14 +291,19 @@
                 padding-bottom: 2rem !important;
             }
             h2 {
-                font-size: 1.25rem !important;
+                font-size: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
             }
             .form-control {
-                font-size: 0.95rem;
+                font-size: 1rem;
+                height: auto;
+                padding: 0.75rem;
             }
             .btn {
                 width: 100%;
                 margin-top: 0.5rem;
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
             }
             .card {
                 margin-bottom: 1rem;
@@ -286,7 +311,26 @@
             .rounded-xl {
                 border-radius: 0.75rem !important;
             }
+            .p-4 {
+                padding: 1.25rem !important;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .navbar-container {
+                padding: 0.75rem 1rem;
+            }
+            .navbar-logo {
+                font-size: 1.25rem;
+            }
+            .navbar-auth {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
         }
+        
         
         /* Form Fields */
         .form-control {
@@ -441,23 +485,31 @@
                         </div>
                     {% endif %}
             <!-- How It Works Section -->
-            <section class="features-section">
-                <h2 class="section-title">چجوری کار می‌کنه؟</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="step-number step-1">۱</div>
-                        <h3 class="feature-title">آپلود نتیجه آزمایش</h3>
-                        <p class="feature-description">راحت و آسون نتیجه آزمایشت رو آپلود کن، فرقی نمی‌کنه از کدوم آزمایشگاهه.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="step-number step-2">۲</div>
-                        <h3 class="feature-title">تحلیل با هوش مصنوعی</h3>
-                        <p class="feature-description">هوش مصنوعی ما همه چیزو بررسی می‌کنه تا بفهمه اوضاع سلامتت چطوره.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="step-number step-3">۳</div>
-                        <h3 class="feature-title">دریافت راهنمایی شخصی</h3>
-                        <p class="feature-description">یه سری پیشنهاد مخصوص خودت می‌گیری، هم واسه تغذیه، هم واسه هشدارهای احتمالی.</p>
+            <section class="features-section py-5">
+                <h2 class="section-title text-center mb-4">چجوری کار می‌کنه؟</h2>
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-4">
+                            <div class="feature-card bg-white p-4 rounded-xl shadow-sm text-center h-100">
+                                <div class="step-number step-1 mx-auto mb-3" style="width: 40px; height: 40px; background: #19b2e5; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">۱</div>
+                                <h3 class="feature-title h5 mb-3">آپلود نتیجه آزمایش</h3>
+                                <p class="feature-description text-muted mb-0">راحت و آسون نتیجه آزمایشت رو آپلود کن، فرقی نمی‌کنه از کدوم آزمایشگاهه.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="feature-card bg-white p-4 rounded-xl shadow-sm text-center h-100">
+                                <div class="step-number step-2 mx-auto mb-3" style="width: 40px; height: 40px; background: #19b2e5; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">۲</div>
+                                <h3 class="feature-title h5 mb-3">تحلیل با هوش مصنوعی</h3>
+                                <p class="feature-description text-muted mb-0">هوش مصنوعی ما همه چیزو بررسی می‌کنه تا بفهمه اوضاع سلامتت چطوره.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="feature-card bg-white p-4 rounded-xl shadow-sm text-center h-100">
+                                <div class="step-number step-3 mx-auto mb-3" style="width: 40px; height: 40px; background: #19b2e5; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">۳</div>
+                                <h3 class="feature-title h5 mb-3">دریافت راهنمایی شخصی</h3>
+                                <p class="feature-description text-muted mb-0">یه سری پیشنهاد مخصوص خودت می‌گیری، هم واسه تغذیه، هم واسه هشدارهای احتمالی.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -495,39 +547,49 @@
                 </div>
             </div>
             <!-- Reviews Section -->
-            <section class="reviews-section">
-                <h2 class="section-title">نظرات کاربران ما</h2>
-                <div class="reviews-grid">
-                    <div class="review-card">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuPzF-PfNA4v_TQblekxfSlQOx60A87eiPCThAdXkocoPF39lFyDd9DBOUhiUmKYzz4BMZXbHl2xIzFdsO871PNViFTDY-Rkncl_OOkVu90MOzAzBOzg4AkkCYW0_ZLWKB4EgLxi87ubJl7TkIuK429Zr0yu3G0pO7BFELOE64LJbCLrPugc6kLpYSZJ6q92uUujKlqLVoTk3JlA1qQ6ob9wfBUgDsDcWLF7bJDMO04Gpn8xw59gt3pF5x4y_z8EaBm1yZx-_H8Bt-');"></div>
-                            <div>
-                                <h3 class="reviewer-name">سارا حسینی</h3>
-                                <span class="review-date">۲ ماه پیش</span>
+            <section class="reviews-section py-5 bg-light">
+                <div class="container">
+                    <h2 class="section-title text-center mb-4">نظرات کاربران ما</h2>
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6">
+                            <div class="review-card bg-white p-4 rounded-xl shadow-sm h-100">
+                                <div class="reviewer-info d-flex align-items-center mb-3">
+                                    <div class="reviewer-avatar rounded-circle me-3" style="width: 48px; height: 48px; background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuPzF-PfNA4v_TQblekxfSlQOx60A87eiPCThAdXkocoPF39lFyDd9DBOUhiUmKYzz4BMZXbHl2xIzFdsO871PNViFTDY-Rkncl_OOkVu90MOzAzBOzg4AkkCYW0_ZLWKB4EgLxi87ubJl7TkIuK429Zr0yu3G0pO7BFELOE64LJbCLrPugc6kLpYSZJ6q92uUujKlqLVoTk3JlA1qQ6ob9wfBUgDsDcWLF7bJDMO04Gpn8xw59gt3pF5x4y_z8EaBm1yZx-_H8Bt-'); background-size: cover; background-position: center;"></div>
+                                    <div>
+                                        <h3 class="h5 mb-1">سارا حسینی</h3>
+                                        <span class="text-muted small">۲ ماه پیش</span>
+                                    </div>
+                                </div>
+                                <div class="review-stars mb-3" style="color: #ffd700;">★★★★★</div>
+                                <p class="review-text text-muted mb-0">"این برنامه تغییر بزرگی در زندگی من ایجاد کرد. بینش‌های شخصی‌سازی شده به من کمک کرد تا سلامتی‌ام را بهتر درک کنم و تصمیمات آگاهانه‌تری بگیرم."</p>
                             </div>
                         </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"این برنامه تغییر بزرگی در زندگی من ایجاد کرد. بینش‌های شخصی‌سازی شده به من کمک کرد تا سلامتی‌ام را بهتر درک کنم و تصمیمات آگاهانه‌تری بگیرم."</p>
-                    </div>
-                    <div class="review-card">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSie5f-AL8dgHa8AYuPfpFYiZ7mwEXbbJ6Fr7l2sTaL0pGjMzItq4EdYyrbj0tbqQ12XpFJ6Yn93BKW08J4vEfIkQoBwRN54B5pIl0jg6rMDTdx43GFvv6sEN-JS9XzLewbbaYgT1LE-A_xiBF55ZatYsrOBo_C8JhxX2Zaz33LhpMZtMzaIUiaw6tLoSMMNBQfDfVWHrkphibtz7m9bJZ6U9o6yXbWuiNSseMA0ubipIZ1KAXquFiXIgseWHY36lT3g1PzBY_3IXf');"></div>
-                            <div>
-                                <h3 class="reviewer-name">امیر رضایی</h3>
-                                <span class="review-date">۳ ماه پیش</span>
+                        <div class="col-12 col-md-6">
+                            <div class="review-card bg-white p-4 rounded-xl shadow-sm h-100">
+                                <div class="reviewer-info d-flex align-items-center mb-3">
+                                    <div class="reviewer-avatar rounded-circle me-3" style="width: 48px; height: 48px; background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSie5f-AL8dgHa8AYuPfpFYiZ7mwEXbbJ6Fr7l2sTaL0pGjMzItq4EdYyrbj0tbqQ12XpFJ6Yn93BKW08J4vEfIkQoBwRN54B5pIl0jg6rMDTdx43GFvv6sEN-JS9XzLewbbaYgT1LE-A_xiBF55ZatYsrOBo_C8JhxX2Zaz33LhpMZtMzaIUiaw6tLoSMMNBQfDfVWHrkphibtz7m9bJZ6U9o6yXbWuiNSseMA0ubipIZ1KAXquFiXIgseWHY36lT3g1PzBY_3IXf'); background-size: cover; background-position: center;"></div>
+                                    <div>
+                                        <h3 class="h5 mb-1">امیر رضایی</h3>
+                                        <span class="text-muted small">۳ ماه پیش</span>
+                                    </div>
+                                </div>
+                                <div class="review-stars mb-3" style="color: #ffd700;">★★★★☆</div>
+                                <p class="review-text text-muted mb-0">"من از ویژگی تشخیص هشدارهای زودهنگام بسیار راضی هستم. این ویژگی مرا از یک مشکل بالقوه آگاه کرد که توانستم سریعاً به آن رسیدگی کنم."</p>
                             </div>
                         </div>
-                        <div class="review-stars">★★★★☆</div>
-                        <p class="review-text">"من از ویژگی تشخیص هشدارهای زودهنگام بسیار راضی هستم. این ویژگی مرا از یک مشکل بالقوه آگاه کرد که توانستم سریعاً به آن رسیدگی کنم."</p>
                     </div>
                 </div>
             </section>
 
             <!-- Call to Action -->
-            <section class="cta-section">
-                <h2 class="cta-title">آماده‌اید کنترل سلامتی خود را به دست بگیرید؟</h2>
-                <p class="cta-description">همین امروز ثبت‌نام کنید و سفر خود را به سمت سلامتی بیشتر آغاز کنید.</p>
-                <button class="btn cta-button">شروع کنید</button>
+            <section class="cta-section py-5 text-center">
+                <div class="container">
+                    <div class="bg-white p-4 p-md-5 rounded-xl shadow-sm">
+                        <h2 class="cta-title h3 mb-3">آماده‌اید کنترل سلامتی خود را به دست بگیرید؟</h2>
+                        <p class="cta-description text-muted mb-4">همین امروز ثبت‌نام کنید و سفر خود را به سمت سلامتی بیشتر آغاز کنید.</p>
+                        <button class="btn bg-accent fw-bold py-2 px-4" style="min-width: 200px;">شروع کنید</button>
+                    </div>
+                </div>
             </section>
         </div>
         <!-- Footer -->
