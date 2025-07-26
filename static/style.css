@@ -1,0 +1,134 @@
+/* Modern, vibrant, world-class style for Photo OCR */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #f8fafb 0%, #e3f0ff 100%);
+    min-height: 100vh;
+    color: #222;
+    margin: 0;
+}
+
+.main-card {
+    border-radius: 2rem;
+    box-shadow: 0 8px 40px rgba(44, 62, 80, 0.12);
+    padding: 3rem 2.5rem;
+    background: #fff;
+    transition: box-shadow 0.3s;
+}
+.main-card:hover {
+    box-shadow: 0 16px 64px rgba(44, 62, 80, 0.18);
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1a73e8;
+    letter-spacing: -1px;
+}
+.title .accent {
+    border-bottom: 4px solid #1a73e8;
+    padding-bottom: 0.3rem;
+    box-shadow: 0 2px 12px #1a73e833;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-file-input::before {
+    content: 'Choose Image';
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 0.7rem;
+    padding: 0.6rem 1.5rem;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-right: 1rem;
+    box-shadow: 0 2px 8px #1a73e822;
+    border: none;
+    transition: background 0.2s;
+}
+.custom-file-input:hover::before {
+    background: #1765c1;
+}
+
+.btn-success, .btn-success:focus {
+    background: linear-gradient(90deg, #1a73e8 0%, #43e97b 100%);
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px #1a73e822;
+    color: #fff;
+}
+.btn-success:hover {
+    background: linear-gradient(90deg, #1765c1 0%, #38c172 100%);
+    box-shadow: 0 4px 24px #1a73e822;
+}
+
+.image-preview-card {
+    border: 2px solid #e3f0ff;
+    border-radius: 1.2rem;
+    padding: 1.2rem;
+    background: #f4faff;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 16px #1a73e811;
+    transition: box-shadow 0.2s;
+}
+.image-preview-card img {
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px #1a73e822;
+}
+
+.detected-text-card {
+    border-radius: 1.2rem;
+    background: #e3f0ff;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 16px #1a73e811;
+}
+.detected-text-card h5 {
+    color: #1a73e8;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+}
+
+.alert-danger {
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ffdde1 0%, #ee9ca7 100%);
+    color: #b71c1c;
+    border: none;
+    box-shadow: 0 2px 12px #ee9ca733;
+}
+
+.bg-light {
+    background: #f8fafb !important;
+}
+
+pre {
+    background: #fff;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: #222;
+    box-shadow: 0 2px 8px #1a73e811;
+}
+
+@media (max-width: 768px) {
+    .main-card { padding: 1.2rem 0.5rem; }
+    .title { font-size: 1.5rem; }
+    .detected-text-card { padding: 1rem; }
+} 
