@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Prepare static site
+        run: |
+          # Create a copy of home.html as index.html in root
+          cp core/templates/core/home.html index.html
+          
+          # Remove Django template tags that won't work in static HTML
+          sed -i 's|{% load static %}||g' index.html
+          sed -i 's|{% static '\''style.css'\'' %}|./static/style.css|g' index.html
+          sed -i '/{% csrf_token %}/d' index.html
+          
+          # Convert the form to a demo form (since Django backend won't work)
+          sed -i 's|method="post"|method="get"|g' index.html
+          sed -i 's|enctype="multipart/form-data"||g' index.html
+          
+          # Replace form action to show it's a demo
+          sed -i 's|<form method="get" class="mb-3">|<form onsubmit="showDemo(event)" class="mb-3">|g' index.html
+          
+          # Add demo JavaScript before closing body tag
+          sed -i 's|</body>|<script>function showDemo(e) { e.preventDefault(); const fileInput = document.getElementById("id_image"); if (!fileInput.files.length) { alert("لطفاً ابتدا یک فایل انتخاب کنید."); return; } const submitBtn = e.target.querySelector("button[type=submit]"); const originalText = submitBtn.textContent; submitBtn.textContent = "در حال پردازش..."; submitBtn.disabled = true; setTimeout(() => { const demoResult = document.createElement("div"); demoResult.className = "mt-3 p-3 bg-light rounded shadow"; demoResult.innerHTML = "<h5 class=\\"text-success\\">📄 نتیجه نمایشی:</h5><div class=\\"alert alert-info\\"><strong>این یک نسخه نمایشی است!</strong><br>در نسخه واقعی، آزمایش شما تحلیل شده و نکات مهم سلامتی استخراج می‌شود.<br><br><strong>ویژگی‌های نسخه کامل:</strong><ul class=\\"mb-0 mt-2\\"><li>تشخیص و استخراج متن از تصاویر آزمایش</li><li>تحلیل هوشمند نتایج با کمک AI</li><li>ارائه توصیه‌های تغذیه‌ای شخصی</li><li>هشدارهای زودهنگام سلامتی</li></ul></div>"; e.target.parentNode.appendChild(demoResult); submitBtn.textContent = originalText; submitBtn.disabled = false; demoResult.scrollIntoView({ behavior: "smooth" }); }, 2000); }</script></body>|g' index.html
+          
+          # Remove Django template conditionals
+          sed -i '/{% if image_preview %}/,/{% endif %}/d' index.html
+          sed -i '/{% if ocr_text %}/,/{% endif %}/d' index.html
+          sed -i '/{% if error %}/,/{% endif %}/d' index.html
+          
+          # Create static directory if it doesn't exist
+          mkdir -p static
+          
+          # Create a basic CSS file if it doesn't exist
+          if [ ! -f static/style.css ]; then
+            echo "/* Additional styles can be added here */" > static/style.css
+          fi
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
