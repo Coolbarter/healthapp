@@ -23,11 +23,21 @@
             font-weight: 700;
             font-style: normal;
         }
+        :root {
+            --space-1: 0.5rem;    /* 8px */
+            --space-2: 1rem;      /* 16px */
+            --space-3: 1.5rem;    /* 24px */
+            --space-4: 2rem;      /* 32px */
+            --space-5: 3rem;      /* 48px */
+            --space-6: 4rem;      /* 64px */
+        }
+        
         body { 
             font-family: 'Vazirmatn', sans-serif; 
             background: #f8fbfc;
             font-size: 16px;
             overflow-x: hidden;
+            line-height: 1.6;
         }
         @media (max-width: 768px) {
             body {
@@ -38,6 +48,23 @@
         /* Additional Responsive Utilities */
         .text-md-auto {
             text-align: inherit !important;
+        }
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1140px;
+                padding-right: var(--space-3);
+                padding-left: var(--space-3);
+            }
+            .py-section {
+                padding-top: var(--space-5);
+                padding-bottom: var(--space-5);
+            }
+            .gap-desktop {
+                gap: var(--space-3);
+            }
+            .mb-desktop {
+                margin-bottom: var(--space-4);
+            }
         }
         @media (max-width: 768px) {
             .w-sm-100 {
@@ -65,6 +92,19 @@
         .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
         .me-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
         
+        /* Typography and Spacing Styles */
+        .display-5 {
+            font-size: 2.75rem;
+            line-height: 1.2;
+            margin-bottom: var(--space-2);
+        }
+        .fs-5 {
+            font-size: 1.125rem !important;
+            line-height: 1.6;
+            margin-bottom: var(--space-3);
+            color: rgba(14, 24, 27, 0.85);
+        }
+        
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .display-5 {
@@ -72,8 +112,8 @@
                 line-height: 1.3;
             }
             .container {
-                padding-right: 1rem;
-                padding-left: 1rem;
+                padding-right: var(--space-2);
+                padding-left: var(--space-2);
             }
             .fs-5 {
                 font-size: 1rem !important;
@@ -113,23 +153,32 @@
         
         /* Form Fields */
         .form-control {
-            padding: 0.75rem;
-            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
             border: 1px solid rgba(0,0,0,0.1);
             background: #ffffff;
-            font-size: 16px; /* Prevent zoom on iOS */
+            font-size: 15px; /* Prevent zoom on iOS */
         }
         .form-control:focus {
-            box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+            box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.1);
             border-color: #0d6efd;
         }
         .btn {
             padding: 0.75rem 1.5rem;
-            border-radius: 0.75rem;
-            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
-            min-height: 44px; /* iOS minimum tap target size */
+            min-height: 42px; /* iOS minimum tap target size */
+            font-size: 1rem;
+        }
+        @media (min-width: 769px) {
+            .form-group {
+                margin-bottom: var(--space-2);
+            }
+            .btn {
+                padding: 0.75rem 2rem;
+            }
         }
         @media (max-width: 768px) {
             .form-control, .btn {
@@ -207,12 +256,12 @@
             </div>
         </header>
         <!-- Hero Section -->
-        <div class="container flex-grow-1 py-4 py-lg-5">
-            <div class="row align-items-center g-4 g-lg-5">
+        <div class="container flex-grow-1 py-section">
+            <div class="row align-items-center g-4 g-lg-4 mb-desktop">
                 <div class="col-lg-6 order-2 order-lg-1">
-                    <div class="rounded-xl aspect-video bg-cover bg-center w-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWuHbhlwmZZ1p8MG2s_kbNextlj3IXza2ByfHtydW8Q9-ztYWGWYGgOGbQG83I42dzHOe2zWYsvlZ1i0BHJNfyQZErB851Kw0ayyg3MXnYmRikQMctVW6KtgXj8SEbG1ZmKOukLlNCN6Ve9i8LqVnAf8n9mo6g80FFEgJ89O3G-HCTQLCO1ieeEWPNuNED5X1SCSQMQn8YfSlXNxz9fpGv7RfHkIP5hZW48ek631L6L4OyUza0ujbkGnt2tpqtiJbx-EZsMwGfoU74'); min-height: 250px;"></div>
+                    <div class="rounded-xl aspect-video bg-cover bg-center w-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWuHbhlwmZZ1p8MG2s_kbNextlj3IXza2ByfHtydW8Q9-ztYWGWYGgOGbQG83I42dzHOe2zWYsvlZ1i0BHJNfyQZErB851Kw0ayyg3MXnYmRikQMctVW6KtgXj8SEbG1ZmKOukLlNCN6Ve9i8LqVnAf8n9mo6g80FFEgJ89O3G-HCTQLCO1ieeEWPNuNED5X1SCSQMQn8YfSlXNxz9fpGv7RfHkIP5hZW48ek631L6L4OyUza0ujbkGnt2tpqtiJbx-EZsMwGfoU74'); min-height: 360px;"></div>
                 </div>
-                <div class="col-lg-6 d-flex flex-column gap-3 justify-content-center order-1 order-lg-2 text-center text-lg-end">
+                <div class="col-lg-6 d-flex flex-column justify-content-center order-1 order-lg-2 text-center text-lg-end" style="gap: var(--space-2);">
                     <h1 class="fw-black display-5" style="color: #0e181b;">پتانسیل سلامتی خود را کشف کنید</h1>
                     <h2 class="fs-5 fw-normal" style="color: #0e181b;">نتایج آزمایش پزشکی خود را آپلود کنید و با کمک هوش مصنوعی بینش‌های دقیقی برای درک بهتر وضعیت سلامتی خود دریافت کنید.</h2>
                     <!-- Upload Form -->
@@ -243,10 +292,10 @@
                 </div>
             </div>
             <!-- How It Works -->
-            <h2 class="mt-5 mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.4rem;">نحوه عملکرد</h2>
-            <div class="row g-3 g-md-4 mb-5">
+            <h2 class="mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.5rem;">نحوه عملکرد</h2>
+            <div class="row g-3 g-md-4 mb-4">
                 <div class="col-12 col-md-4">
-                    <div class="border rounded-lg bg-white p-3 p-md-4 h-100">
+                    <div class="border rounded-lg bg-white p-4 h-100">
                         <div class="mb-2 text-accent text-center text-md-end" style="font-size: 2rem;">
                             <!-- Upload Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H80a8,8,0,0,1,0,16H32v64H224V136H176a8,8,0,0,1,0-16h48A16,16,0,0,1,240,136ZM85.66,77.66,120,43.31V128a8,8,0,0,0,16,0V43.31l34.34,34.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,77.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z"></path></svg>
@@ -277,10 +326,10 @@
                 </div>
             </div>
             <!-- Key Features -->
-            <h2 class="mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.4rem;">ویژگی‌های کلیدی</h2>
-            <div class="row g-3 g-md-4 mb-5">
+            <h2 class="mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.5rem;">ویژگی‌های کلیدی</h2>
+            <div class="row g-3 g-md-4 mb-4">
                 <div class="col-12 col-md-4">
-                    <div class="border rounded-lg bg-white p-3 p-md-4 h-100">
+                    <div class="border rounded-lg bg-white p-4 h-100">
                         <div class="mb-2 text-accent" style="font-size: 2rem;">
                             <!-- Diet Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M168.06,75.94a12,12,0,1,1-12-12A12,12,0,0,1,168.06,75.94Zm39.87,81c-20.76,26.37-53.85,40.74-98.41,42.77l-22,51.42A8,8,0,0,1,80.13,256l-.51,0a8,8,0,0,1-7.19-5.78L57.62,198.37,5.8,183.53a8,8,0,0,1-1-15.05l51.43-22c2-44.57,16.41-77.66,42.79-98.41,43.21-34,104.91-22.83,116.84-20.25a16,16,0,0,1,12.26,12.26C230.76,52,241.94,113.76,207.93,157ZM161.6,172.61a52.12,52.12,0,0,1-33.42-44.79A52.1,52.1,0,0,1,83.4,94.41c-7,15.86-10.76,35.11-11.3,57.62a8,8,0,0,1-4.85,7.16L31.84,174.34l34.46,9.87a8,8,0,0,1,5.49,5.49l9.84,34.46,15.18-35.41A8,8,0,0,1,104,183.9C126.48,183.37,145.73,179.59,161.6,172.61ZM212.53,43.47c-10.7-2.32-66-12.39-103.57,17.18A80.9,80.9,0,0,0,96.13,73.32a36,36,0,0,0,39.36,38.47,8,8,0,0,1,8.72,8.72,36,36,0,0,0,38.49,39.36,80.64,80.64,0,0,0,12.65-12.81C224.92,109.49,214.85,54.18,212.53,43.47Z"></path></svg>
@@ -311,8 +360,8 @@
                 </div>
             </div>
             <!-- What Our Users Say -->
-            <h2 class="mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.4rem;">نظرات کاربران ما</h2>
-            <div class="row g-3 g-md-4 mb-5">
+            <h2 class="mb-4 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.75rem;">نظرات کاربران ما</h2>
+            <div class="row g-3 g-md-4 mb-desktop">
                 <div class="col-12 col-md-6">
                     <div class="bg-white rounded-xl p-3 p-md-4 h-100">
                         <div class="d-flex align-items-center gap-3 mb-2">
@@ -346,8 +395,8 @@
             </div>
             <!-- Call to Action -->
             <div class="text-center py-5">
-                <h1 class="fw-bold mb-3" style="color: #0e181b; font-size: 2rem;">آماده‌اید کنترل سلامتی خود را به دست بگیرید؟</h1>
-                <p class="mb-4" style="color: #0e181b;">همین امروز ثبت‌نام کنید و سفر خود را به سمت سلامتی بیشتر آغاز کنید.</p>
+                <h1 class="fw-bold mb-2" style="color: #0e181b; font-size: 2rem;">آماده‌اید کنترل سلامتی خود را به دست بگیرید؟</h1>
+                <p class="mb-3 fs-5 mx-auto" style="color: #0e181b; max-width: 540px;">همین امروز ثبت‌نام کنید و سفر خود را به سمت سلامتی بیشتر آغاز کنید.</p>
                 <button class="btn bg-accent fw-bold px-4 py-2">شروع کنید</button>
             </div>
         </div>
