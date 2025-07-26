@@ -45,6 +45,143 @@
             }
         }
         
+        /* Navbar Styles */
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bs-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            padding: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-logo:hover {
+            transform: translateY(-1px);
+            color: var(--bs-primary);
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #19b2e5;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            color: #0e181b;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .navbar-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .navbar-link:hover {
+            color: var(--bs-primary);
+        }
+
+        .navbar-auth {
+            background: var(--bs-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .navbar-auth:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            padding: 4rem 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #f8fbfc;
+        }
+
+        .hero-content {
+            max-width: 100%;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #0e181b;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-content, .hero-image {
+                max-width: 100%;
+            }
+
+            .navbar-links {
+                display: none;
+            }
+
+            .navbar-container {
+                padding: 1rem 1.5rem;
+            }
+        }
+
         /* Additional Responsive Utilities */
         .text-md-auto {
             text-align: inherit !important;
@@ -230,49 +367,47 @@
 <body>
     <div class="d-flex flex-column min-vh-100">
         <!-- Header -->
-        <header class="navbar navbar-expand-lg border-bottom px-4 px-lg-5 py-3 bg-white">
-            <div class="container-fluid">
-                <div class="d-flex align-items-center gap-3">
-                    <span class="me-2" style="font-size: 2rem; color: #19b2e5;">
-                        <!-- SVG Logo -->
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                            <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor"></path>
-                        </svg>
-                    </span>
-                    <h2 class="mb-0 fw-bold" style="color: #0e181b; font-size: 1.5rem;">بینش سلامت</h2>
+        <header class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <span class="logo-icon" style="color: #19b2e5;">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                        <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="logo-text">بینش سلامت</span>
+            </a>
+            <ul class="navbar-links">
+                <li><a href="#features" class="navbar-link">ویژگی‌ها</a></li>
+                <li><a href="#about" class="navbar-link">درباره ما</a></li>
+                <li><a href="#contact" class="navbar-link">تماس با ما</a></li>
+            </ul>
+            <button class="navbar-auth">ورود با شماره موبایل</button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <h1 class="hero-title">تو نتیجه آزمایش‌هات چیزهایی هست که حتی دکترت بهت نگفته!</h1>
+                    <p class="hero-description">کافیه آزمایش‌تو آپلود کنی؛ ما با کمک هوش مصنوعی، نکات پنهان سلامت‌تو کشف می‌کنیم</p>
+                    <!-- Upload Form -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <form method="post" enctype="multipart/form-data" class="mb-3">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="id_image" class="form-label fw-semibold">تصویر را انتخاب کنید</label>
+                                <input type="file" name="image" accept="image/*" class="form-control" id="id_image" required>
+                            </div>
+                            <button type="submit" class="btn bg-accent fw-bold py-2 px-4 w-100">تحلیل</button>
+                        </form>
+                    </div>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <nav class="navbar-nav ms-auto gap-4 align-items-center mt-3 mt-lg-0">
-                        <a class="nav-link text-dark fw-medium" href="#">درباره ما</a>
-                        <a class="nav-link text-dark fw-medium" href="#">خدمات</a>
-                        <a class="nav-link text-dark fw-medium" href="#">تماس با ما</a>
-                        <button class="btn bg-accent fw-bold w-100 w-lg-auto mt-3 mt-lg-0">ورود با شماره موبایل</button>
-                    </nav>
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="hero-image">
+                        <div class="rounded-xl aspect-video bg-cover bg-center w-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWuHbhlwmZZ1p8MG2s_kbNextlj3IXza2ByfHtydW8Q9-ztYWGWYGgOGbQG83I42dzHOe2zWYsvlZ1i0BHJNfyQZErB851Kw0ayyg3MXnYmRikQMctVW6KtgXj8SEbG1ZmKOukLlNCN6Ve9i8LqVnAf8n9mo6g80FFEgJ89O3G-HCTQLCO1ieeEWPNuNED5X1SCSQMQn8YfSlXNxz9fpGv7RfHkIP5hZW48ek631L6L4OyUza0ujbkGnt2tpqtiJbx-EZsMwGfoU74'); min-height: 360px;"></div>
+                    </div>
                 </div>
             </div>
-        </header>
-        <!-- Hero Section -->
-        <div class="container flex-grow-1 py-section">
-            <div class="row align-items-center g-4 g-lg-4 mb-desktop">
-                <div class="col-lg-6 order-2 order-lg-1">
-                    <div class="rounded-xl aspect-video bg-cover bg-center w-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWuHbhlwmZZ1p8MG2s_kbNextlj3IXza2ByfHtydW8Q9-ztYWGWYGgOGbQG83I42dzHOe2zWYsvlZ1i0BHJNfyQZErB851Kw0ayyg3MXnYmRikQMctVW6KtgXj8SEbG1ZmKOukLlNCN6Ve9i8LqVnAf8n9mo6g80FFEgJ89O3G-HCTQLCO1ieeEWPNuNED5X1SCSQMQn8YfSlXNxz9fpGv7RfHkIP5hZW48ek631L6L4OyUza0ujbkGnt2tpqtiJbx-EZsMwGfoU74'); min-height: 360px;"></div>
-                </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-center order-1 order-lg-2 text-center text-lg-end" style="gap: var(--space-2);">
-                    <h1 class="fw-black display-5" style="color: #0e181b;">پتانسیل سلامتی خود را کشف کنید</h1>
-                    <h2 class="fs-5 fw-normal" style="color: #0e181b;">نتایج آزمایش پزشکی خود را آپلود کنید و با کمک هوش مصنوعی بینش‌های دقیقی برای درک بهتر وضعیت سلامتی خود دریافت کنید.</h2>
-                    <!-- Upload Form -->
-                    <form method="post" enctype="multipart/form-data" class="mb-3">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="id_image" class="form-label fw-semibold">تصویر را انتخاب کنید</label>
-                            <input type="file" name="image" accept="image/*" class="form-control" id="id_image" required>
-                        </div>
-                        <button type="submit" class="btn bg-accent fw-bold py-2 px-4">تحلیل</button>
-                    </form>
                     {% if image_preview %}
                         <div class="card p-2 mb-2 text-center">
                             <img src="data:image/{{ image_format }};base64,{{ image_preview }}" class="img-fluid rounded shadow" style="max-width: 350px; max-height: 300px;" alt="پیش‌نمایش">
@@ -289,65 +424,65 @@
                             {{ error }}
                         </div>
                     {% endif %}
-                </div>
-            </div>
-            <!-- How It Works -->
-            <h2 class="mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.5rem;">نحوه عملکرد</h2>
-            <div class="row g-3 g-md-4 mb-4">
-                <div class="col-12 col-md-4">
-                    <div class="border rounded-lg bg-white p-4 h-100">
-                        <div class="mb-2 text-accent text-center text-md-end" style="font-size: 2rem;">
-                            <!-- Upload Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H80a8,8,0,0,1,0,16H32v64H224V136H176a8,8,0,0,1,0-16h48A16,16,0,0,1,240,136ZM85.66,77.66,120,43.31V128a8,8,0,0,0,16,0V43.31l34.34,34.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,77.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z"></path></svg>
+                    {% if image_preview %}
+                        <div class="card p-2 mb-2 text-center">
+                            <img src="data:image/{{ image_format }};base64,{{ image_preview }}" class="img-fluid rounded shadow" style="max-width: 350px; max-height: 300px;" alt="پیش‌نمایش">
                         </div>
-                        <h5 class="fw-bold">آپلود نتایج آزمایش</h5>
-                        <p class="text-muted">نتایج آزمایش خود را از هر آزمایشگاهی با امنیت کامل آپلود کنید.</p>
+                    {% endif %}
+                    {% if ocr_text %}
+                        <div class="mt-3 p-3 bg-light rounded shadow">
+                            <h5 class="text-success">📄 متن استخراج شده:</h5>
+                            <pre style="white-space: pre-wrap; direction: ltr;">{{ ocr_text }}</pre>
+                        </div>
+                    {% endif %}
+                    {% if error %}
+                        <div class="alert alert-danger mt-3" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+            <!-- How It Works Section -->
+            <section class="features-section">
+                <h2 class="section-title">چجوری کار می‌کنه؟</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="step-number step-1">۱</div>
+                        <h3 class="feature-title">آپلود نتیجه آزمایش</h3>
+                        <p class="feature-description">راحت و آسون نتیجه آزمایشت رو آپلود کن، فرقی نمی‌کنه از کدوم آزمایشگاهه.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="step-number step-2">۲</div>
+                        <h3 class="feature-title">تحلیل با هوش مصنوعی</h3>
+                        <p class="feature-description">هوش مصنوعی ما همه چیزو بررسی می‌کنه تا بفهمه اوضاع سلامتت چطوره.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="step-number step-3">۳</div>
+                        <h3 class="feature-title">دریافت راهنمایی شخصی</h3>
+                        <p class="feature-description">یه سری پیشنهاد مخصوص خودت می‌گیری، هم واسه تغذیه، هم واسه هشدارهای احتمالی.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="border rounded-lg bg-white p-4 h-100">
-                        <div class="mb-2 text-accent" style="font-size: 2rem;">
-                            <!-- AI Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176Z"></path></svg>
-                        </div>
-                        <h5 class="fw-bold">تحلیل با کمک هوش مصنوعی</h5>
-                        <p class="text-muted">الگوریتم‌های هوش مصنوعی ما داده‌های شما را برای شناسایی شاخص‌های مهم سلامتی تحلیل می‌کنند.</p>
+            </section>
+
+            <!-- Key Features Section -->
+            <section class="features-section">
+                <h2 class="section-title">ویژگی‌های خفن</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="step-number step-1">🍎</div>
+                        <h3 class="feature-title">برنامه غذایی مخصوص خودت</h3>
+                        <p class="feature-description">بر اساس آزمایشت، یه برنامه غذایی می‌گیری که واقعاً به دردت می‌خوره.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="step-number step-2">⚡</div>
+                        <h3 class="feature-title">هشدارهای زودهنگام</h3>
+                        <p class="feature-description">اگه چیزی مشکوک باشه، زود بهت می‌گیم که حواست جمع باشه.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="step-number step-3">📊</div>
+                        <h3 class="feature-title">گزارش کامل و راحت‌فهم</h3>
+                        <p class="feature-description">یه گزارش کامل دریافت می‌کنی که همه چیزو با زبون ساده توضیح داده.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="border rounded-lg bg-white p-4 h-100">
-                        <div class="mb-2 text-accent" style="font-size: 2rem;">
-                            <!-- Insights Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M104,176a8,8,0,0,1-8,8H64a8,8,0,0,1,0-16H96A8,8,0,0,1,104,176Zm-8-40H64a8,8,0,0,0,0,16H96a8,8,0,0,0,0-16Zm0-32H64a8,8,0,0,0,0,16H96a8,8,0,0,0,0-16ZM232,88V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V80a8,8,0,0,1,5.7-7.66l160-48a8,8,0,0,1,4.6,15.33L86.51,72H216A16,16,0,0,1,232,88ZM216,200V88H40V200H216Zm-16-56a40,40,0,1,1-40-40A40,40,0,0,1,200,144Zm-16,0a24,24,0,1,0-24,24A24,24,0,0,0,184,144Z"></path></svg>
-                        </div>
-                        <h5 class="fw-bold">بینش‌های شخصی‌سازی‌شده</h5>
-                        <p class="text-muted">بینش‌ها و توصیه‌های سلامت متناسب با نتایج خود را دریافت کنید.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Key Features -->
-            <h2 class="mb-3 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.5rem;">ویژگی‌های کلیدی</h2>
-            <div class="row g-3 g-md-4 mb-4">
-                <div class="col-12 col-md-4">
-                    <div class="border rounded-lg bg-white p-4 h-100">
-                        <div class="mb-2 text-accent" style="font-size: 2rem;">
-                            <!-- Diet Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M168.06,75.94a12,12,0,1,1-12-12A12,12,0,0,1,168.06,75.94Zm39.87,81c-20.76,26.37-53.85,40.74-98.41,42.77l-22,51.42A8,8,0,0,1,80.13,256l-.51,0a8,8,0,0,1-7.19-5.78L57.62,198.37,5.8,183.53a8,8,0,0,1-1-15.05l51.43-22c2-44.57,16.41-77.66,42.79-98.41,43.21-34,104.91-22.83,116.84-20.25a16,16,0,0,1,12.26,12.26C230.76,52,241.94,113.76,207.93,157ZM161.6,172.61a52.12,52.12,0,0,1-33.42-44.79A52.1,52.1,0,0,1,83.4,94.41c-7,15.86-10.76,35.11-11.3,57.62a8,8,0,0,1-4.85,7.16L31.84,174.34l34.46,9.87a8,8,0,0,1,5.49,5.49l9.84,34.46,15.18-35.41A8,8,0,0,1,104,183.9C126.48,183.37,145.73,179.59,161.6,172.61ZM212.53,43.47c-10.7-2.32-66-12.39-103.57,17.18A80.9,80.9,0,0,0,96.13,73.32a36,36,0,0,0,39.36,38.47,8,8,0,0,1,8.72,8.72,36,36,0,0,0,38.49,39.36,80.64,80.64,0,0,0,12.65-12.81C224.92,109.49,214.85,54.18,212.53,43.47Z"></path></svg>
-                        </div>
-                        <h5 class="fw-bold">برنامه‌های غذایی شخصی‌سازی‌شده</h5>
-                        <p class="text-muted">بر اساس داده‌های سلامت شما، برنامه غذایی مخصوص دریافت کنید.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="border rounded-lg bg-white p-4 h-100">
-                        <div class="mb-2 text-accent" style="font-size: 2rem;">
-                            <!-- Warning Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>
-                        </div>
-                        <h5 class="fw-bold">تشخیص هشدارهای زودهنگام</h5>
-                        <p class="text-muted">هشدارهای زودهنگام در مورد خطرات احتمالی سلامتی بر اساس نتایج آزمایش دریافت کنید.</p>
-                    </div>
-                </div>
+            </section>
                 <div class="col-md-4">
                     <div class="border rounded-lg bg-white p-4 h-100">
                         <div class="mb-2 text-accent" style="font-size: 2rem;">
@@ -359,46 +494,41 @@
                     </div>
                 </div>
             </div>
-            <!-- What Our Users Say -->
-            <h2 class="mb-4 fw-bold text-center text-lg-end" style="color: #0e181b; font-size: 1.75rem;">نظرات کاربران ما</h2>
-            <div class="row g-3 g-md-4 mb-desktop">
-                <div class="col-12 col-md-6">
-                    <div class="bg-white rounded-xl p-3 p-md-4 h-100">
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <div class="rounded-circle bg-cover bg-center" style="width: 40px; height: 40px; background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuPzF-PfNA4v_TQblekxfSlQOx60A87eiPCThAdXkocoPF39lFyDd9DBOUhiUmKYzz4BMZXbHl2xIzFdsO871PNViFTDY-Rkncl_OOkVu90MOzAzBOzg4AkkCYW0_ZLWKB4EgLxi87ubJl7TkIuK429Zr0yu3G0pO7BFELOE64LJbCLrPugc6kLpYSZJ6q92uUujKlqLVoTk3JlA1qQ6ob9wfBUgDsDcWLF7bJDMO04Gpn8xw59gt3pF5x4y_z8EaBm1yZx-_H8Bt-');"></div>
+            <!-- Reviews Section -->
+            <section class="reviews-section">
+                <h2 class="section-title">نظرات کاربران ما</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuPzF-PfNA4v_TQblekxfSlQOx60A87eiPCThAdXkocoPF39lFyDd9DBOUhiUmKYzz4BMZXbHl2xIzFdsO871PNViFTDY-Rkncl_OOkVu90MOzAzBOzg4AkkCYW0_ZLWKB4EgLxi87ubJl7TkIuK429Zr0yu3G0pO7BFELOE64LJbCLrPugc6kLpYSZJ6q92uUujKlqLVoTk3JlA1qQ6ob9wfBUgDsDcWLF7bJDMO04Gpn8xw59gt3pF5x4y_z8EaBm1yZx-_H8Bt-');"></div>
                             <div>
-                                <p class="mb-0 fw-medium">سارا حسینی</p>
-                                <small class="text-muted">۲ ماه پیش</small>
+                                <h3 class="reviewer-name">سارا حسینی</h3>
+                                <span class="review-date">۲ ماه پیش</span>
                             </div>
                         </div>
-                        <div class="mb-2">
-                            <span class="text-accent">★★★★★</span>
-                        </div>
-                        <p>"این برنامه تغییر بزرگی در زندگی من ایجاد کرد. بینش‌های شخصی‌سازی شده به من کمک کرد تا سلامتی‌ام را بهتر درک کنم و تصمیمات آگاهانه‌تری بگیرم."</p>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"این برنامه تغییر بزرگی در زندگی من ایجاد کرد. بینش‌های شخصی‌سازی شده به من کمک کرد تا سلامتی‌ام را بهتر درک کنم و تصمیمات آگاهانه‌تری بگیرم."</p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="bg-white rounded-xl p-4 h-100">
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <div class="rounded-circle bg-cover bg-center" style="width: 40px; height: 40px; background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSie5f-AL8dgHa8AYuPfpFYiZ7mwEXbbJ6Fr7l2sTaL0pGjMzItq4EdYyrbj0tbqQ12XpFJ6Yn93BKW08J4vEfIkQoBwRN54B5pIl0jg6rMDTdx43GFvv6sEN-JS9XzLewbbaYgT1LE-A_xiBF55ZatYsrOBo_C8JhxX2Zaz33LhpMZtMzaIUiaw6tLoSMMNBQfDfVWHrkphibtz7m9bJZ6U9o6yXbWuiNSseMA0ubipIZ1KAXquFiXIgseWHY36lT3g1PzBY_3IXf');"></div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSie5f-AL8dgHa8AYuPfpFYiZ7mwEXbbJ6Fr7l2sTaL0pGjMzItq4EdYyrbj0tbqQ12XpFJ6Yn93BKW08J4vEfIkQoBwRN54B5pIl0jg6rMDTdx43GFvv6sEN-JS9XzLewbbaYgT1LE-A_xiBF55ZatYsrOBo_C8JhxX2Zaz33LhpMZtMzaIUiaw6tLoSMMNBQfDfVWHrkphibtz7m9bJZ6U9o6yXbWuiNSseMA0ubipIZ1KAXquFiXIgseWHY36lT3g1PzBY_3IXf');"></div>
                             <div>
-                                <p class="mb-0 fw-medium">امیر رضایی</p>
-                                <small class="text-muted">۳ ماه پیش</small>
+                                <h3 class="reviewer-name">امیر رضایی</h3>
+                                <span class="review-date">۳ ماه پیش</span>
                             </div>
                         </div>
-                        <div class="mb-2">
-                            <span class="text-accent">★★★★☆</span>
-                        </div>
-                        <p>"من از ویژگی تشخیص هشدارهای زودهنگام بسیار راضی هستم. این ویژگی مرا از یک مشکل بالقوه آگاه کرد که توانستم سریعاً به آن رسیدگی کنم."</p>
+                        <div class="review-stars">★★★★☆</div>
+                        <p class="review-text">"من از ویژگی تشخیص هشدارهای زودهنگام بسیار راضی هستم. این ویژگی مرا از یک مشکل بالقوه آگاه کرد که توانستم سریعاً به آن رسیدگی کنم."</p>
                     </div>
                 </div>
-            </div>
+            </section>
+
             <!-- Call to Action -->
-            <div class="text-center py-5">
-                <h1 class="fw-bold mb-2" style="color: #0e181b; font-size: 2rem;">آماده‌اید کنترل سلامتی خود را به دست بگیرید؟</h1>
-                <p class="mb-3 fs-5 mx-auto" style="color: #0e181b; max-width: 540px;">همین امروز ثبت‌نام کنید و سفر خود را به سمت سلامتی بیشتر آغاز کنید.</p>
-                <button class="btn bg-accent fw-bold px-4 py-2">شروع کنید</button>
-            </div>
+            <section class="cta-section">
+                <h2 class="cta-title">آماده‌اید کنترل سلامتی خود را به دست بگیرید؟</h2>
+                <p class="cta-description">همین امروز ثبت‌نام کنید و سفر خود را به سمت سلامتی بیشتر آغاز کنید.</p>
+                <button class="btn cta-button">شروع کنید</button>
+            </section>
         </div>
         <!-- Footer -->
         <footer class="bg-white border-top py-4 mt-auto">
