@@ -1,0 +1,261 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+    .analysis-container {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .swiper {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .analysis-card {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+
+    .analysis-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .analysis-header {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .analysis-header h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .analysis-header .status {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .analysis-content {
+        padding: 2rem;
+    }
+
+    .analysis-content > div {
+        margin-bottom: 1.5rem;
+    }
+
+    .analysis-content h4 {
+        color: #19b2e5;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .analysis-content p {
+        margin: 0;
+        color: #4a5568;
+        line-height: 1.6;
+    }
+
+    /* Swiper Navigation Styles */
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #19b2e5;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #19b2e5;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .analysis-container {
+            padding: 1rem;
+        }
+
+        .analysis-card {
+            margin: 0 0.5rem;
+        }
+
+        .analysis-header {
+            padding: 1rem;
+        }
+
+        .analysis-header h3 {
+            font-size: 1.25rem;
+        }
+
+        .analysis-content {
+            padding: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="analysis-container">
+    {% if image_preview %}
+    <!-- Image Preview -->
+    <div class="image-preview-section mb-4">
+        <div class="bg-white p-4 rounded-xl shadow-sm text-center">
+            <h5 class="mb-3 fw-bold text-dark">نتیجه آزمایش شما</h5>
+            <img src="data:image/{{ image_format }};base64,{{ image_preview }}" 
+                 class="img-fluid rounded shadow-sm" 
+                 style="max-width: 350px; max-height: 300px;" 
+                 alt="تصویر آزمایش">
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Swiper Container -->
+    <div class="swiper">
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-wrapper">
+            <!-- Vitamin D Slide -->
+            <div class="swiper-slide">
+                <div class="analysis-card">
+                    <div class="analysis-header bg-warning text-dark">
+                        <h3>کمبود ویتامین D</h3>
+                        <span class="status">پایین‌تر از حد نرمال</span>
+                    </div>
+                    <div class="analysis-content">
+                        <div class="recommendation-section">
+                            <h4>توصیه‌ها</h4>
+                            <p>نور آفتاب صبحگاهی، مکمل ویتامین D</p>
+                        </div>
+                        <div class="food-section">
+                            <h4>مواد غذایی پیشنهادی</h4>
+                            <p>ماهی سالمون، تخم‌مرغ، شیر غنی‌شده</p>
+                        </div>
+                        <div class="exercise-section">
+                            <h4>ورزش</h4>
+                            <p>پیاده‌روی روزانه در هوای آزاد</p>
+                        </div>
+                        <div class="timeline-section">
+                            <h4>زمان لازم برای بهبود</h4>
+                            <p>۲-۳ ماه</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iron Deficiency Slide -->
+            <div class="swiper-slide">
+                <div class="analysis-card">
+                    <div class="analysis-header bg-danger text-white">
+                        <h3>کم‌خونی</h3>
+                        <span class="status">آهن خون پایین</span>
+                    </div>
+                    <div class="analysis-content">
+                        <div class="recommendation-section">
+                            <h4>توصیه‌ها</h4>
+                            <p>مصرف منابع غنی آهن، ویتامین C همراه غذا</p>
+                        </div>
+                        <div class="food-section">
+                            <h4>مواد غذایی پیشنهادی</h4>
+                            <p>گوشت قرمز کم‌چرب، عدس، اسفناج، پرتقال</p>
+                        </div>
+                        <div class="exercise-section">
+                            <h4>ورزش</h4>
+                            <p>پیاده‌روی سبک، یوگای ملایم</p>
+                        </div>
+                        <div class="timeline-section">
+                            <h4>زمان لازم برای بهبود</h4>
+                            <p>۱-۲ ماه</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other health markers... -->
+            <div class="swiper-slide">
+                <div class="analysis-card">
+                    <div class="analysis-header bg-warning text-dark">
+                        <h3>کلسترول بالا</h3>
+                        <span class="status">کمی بالاتر از حد نرمال</span>
+                    </div>
+                    <div class="analysis-content">
+                        <div class="recommendation-section">
+                            <h4>توصیه‌ها</h4>
+                            <p>کاهش مصرف چربی‌های اشباع‌شده</p>
+                        </div>
+                        <div class="food-section">
+                            <h4>مواد غذایی پیشنهادی</h4>
+                            <p>سبزیجات برگ سبز، ماهی، جو دوسر</p>
+                        </div>
+                        <div class="exercise-section">
+                            <h4>ورزش</h4>
+                            <p>۳۰ دقیقه پیاده‌روی تند روزانه</p>
+                        </div>
+                        <div class="timeline-section">
+                            <h4>زمان لازم برای بهبود</h4>
+                            <p>۲-۳ ماه</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        effect: 'cards',
+        
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Responsive breakpoints
+        breakpoints: {
+            // when window width is >= 320px
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            // when window width is >= 768px
+            768: {
+                slidesPerView: 1,
+                spaceBetween: 30
+            }
+        }
+    });
+</script>
+{% endblock %}

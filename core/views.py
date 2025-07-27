@@ -1,4 +1,4 @@
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.contrib import messages
@@ -17,7 +17,37 @@ load_dotenv()
 class HomeView(FormView):
     template_name = 'core/home.html'
     form_class = ImageUploadForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('analysis_slider')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        image = form.cleaned_data['image']
+        try:
+            # Process image and store in session
+            img = Image.open(image)
+            # Convert image to base64 for preview
+            buffer = BytesIO()
+            img.save(buffer, format='PNG')
+            image_b64 = buffer.getvalue()
+            # Store in session
+            self.request.session['image_data'] = {
+                'format': 'png',
+                'preview': image_b64.hex(),
+            }
+        except Exception as e:
+            messages.error(self.request, str(e))
+        return response
+
+class AnalysisSliderView(TemplateView):
+    template_name = 'core/analysis_slider.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Get image data from session
+        image_data = self.request.session.get('image_data', {})
+        context['image_format'] = image_data.get('format', '')
+        context['image_preview'] = image_data.get('preview', '')
+        return context
 
     def sanitize_filename(self, filename):
         filename = filename.replace(' ', '_')
